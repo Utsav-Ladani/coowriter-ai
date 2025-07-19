@@ -1,0 +1,110 @@
+@import "tailwindcss/theme.css";
+@import url(https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300..800;1,300..800&display=swap);
+
+:root {
+	--coowriter-ai-highlight-color: #b4b5ff44;
+}
+
+.coowriter-ai.coowriter-ai-tw {
+	--wp-components-color-accent: #000;
+	font-family: "Open Sans", sans-serif;
+
+	margin-block: 20px !important;
+
+	@import "tailwindcss/preflight.css";
+	@import "tailwindcss/utilities.css";
+
+	&.is-pinned {
+		position: sticky !important;
+		bottom: 10px;
+	}
+
+	&::after {
+		content: none !important;
+	}
+}
+
+.field-sizing-content {
+	field-sizing: content;
+
+	@supports not (field-sizing: content) {
+		resize: vertical;
+	}
+}
+
+@property --angle {
+	syntax: "<angle>";
+	initial-value: 0deg;
+	inherits: false;
+}
+
+.coowriter-ai::before {
+	content: "";
+	position: absolute;
+
+	--angle: 0deg;
+	--borderWidth: 6px;
+
+	top: calc(-1 * var(--borderWidth));
+	left: calc(-1 * var(--borderWidth));
+	height: calc(100% + var(--borderWidth) * 2);
+	width: calc(100% + var(--borderWidth) * 2);
+	border-radius: var(--borderWidth);
+
+	background: linear-gradient(var(--angle), #6366f1, #8b5cf6);
+	animation: rotate 3s linear infinite;
+}
+
+@keyframes rotate {
+
+	from {
+		--angle: 360deg;
+	}
+}
+
+.coowriter-ai:hover::before {
+	animation-play-state: paused;
+}
+
+@media (prefers-reduced-motion: reduce) {
+
+	.coowriter-ai::before {
+		animation-play-state: paused;
+	}
+}
+
+body:has(.coowriter-ai.is-use-selected-blocks)
+[data-coowriter-ai-highlighted]::before {
+	content: "";
+	position: absolute;
+	top: -5px;
+	inset-inline-start: -10px;
+	width: calc(100% + 20px);
+	height: calc(100% + 10px);
+	background: var(--coowriter-ai-highlight-color);
+	backdrop-filter: blur(10px);
+	border-radius: 4px;
+	background-repeat: no-repeat;
+	z-index: -100;
+}
+
+body:has(.coowriter-ai.is-use-selected-blocks.is-loading)
+[data-coowriter-ai-highlighted]::before {
+	background: repeating-linear-gradient(to right, var(--coowriter-ai-highlight-color) 0%, #e4e8ff44 50%, var(--coowriter-ai-highlight-color) 100%);
+	animation: gradient-loading 1000ms infinite;
+	animation-fill-mode: forwards;
+	animation-timing-function: linear;
+	background-size: 200% auto;
+	background-position: 0 100%;
+}
+
+@keyframes gradient-loading {
+
+	0% {
+		background-position: 0 0;
+	}
+
+	100% {
+		background-position: -200% 0;
+	}
+}

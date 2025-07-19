@@ -1,0 +1,48 @@
+{
+	"name": "coowriter-ai",
+	"version": "0.1.0",
+	"description": "AI-powered writing assistant for WordPress Block Editor.",
+	"author": "CooWriter AI",
+	"authorUri": "https://coowriterai.com/",
+	"license": "GPL-2.0-or-later",
+	"keywords": [
+		"wordpress",
+		"plugin",
+		"ai",
+		"co-writer",
+		"assistant"
+	],
+	"homepage": "https://coowriterai.com/",
+	"repository": {
+		"type": "git",
+		"url": "https://github.com/Utsav-Ladani/coowriter-ai"
+	},
+	"bugs": {
+		"url": "https://github.com/Utsav-Ladani/coowriter-ai/issues"
+	},
+	"dependencies": {
+		"classnames": "^2.5.1",
+		"lucide-react": "^0.536.0",
+		"tailwindcss": "^4.1.11"
+	},
+	"devDependencies": {
+		"@tailwindcss/cli": "^4.1.11",
+		"@tailwindcss/postcss": "^4.1.11",
+		"@wordpress/scripts": "^30.23.0",
+		"clean-webpack-plugin": "^4.0.0",
+		"postcss-loader": "^8.1.1"
+	},
+	"scripts": {
+		"start": "wp-scripts start --hot",
+		"build": "wp-scripts build",
+		"format": "wp-scripts format",
+		"lint:css": "wp-scripts lint-style",
+		"lint:js": "wp-scripts lint-js",
+		"lint:md:docs": "wp-scripts lint-md-docs",
+		"lint:pkg-json": "wp-scripts lint-pkg-json",
+		"check-engines": "wp-scripts check-engines",
+		"check-licenses": "wp-scripts check-licenses --prod",
+		"packages-update": "wp-scripts packages-update",
+		"plugin-zip": "wp-scripts build && wp-scripts plugin-zip"
+	}
+}

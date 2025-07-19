@@ -1,0 +1,16 @@
+{
+	"$schema": "https://schemas.wp.org/trunk/block.json",
+	"apiVersion": 3,
+	"name": "coowriter-ai/coowriter-ai",
+	"version": "0.1.0",
+	"title": "CooWriter AI",
+	"category": "text",
+	"parent": [ "core/post-content" ],
+	"description": "AI-powered writing assistant for WordPress Block Editor",
+	"example": {},
+	"supports": {
+		"html": false,
+		"customClassName": false
+	},
+	"textdomain": "coowriter-ai"
+}
